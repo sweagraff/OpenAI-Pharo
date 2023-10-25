@@ -47,7 +47,8 @@ OpenAISDK class >> createWithAPIKey: anAPIKeyString organization: anOrganization
 	client headerAt: 'Authorization' put: 'Bearer ' , anAPIKeyString.
 	anOrganizationString isNotNil ifTrue: [ 
 		client headerAt: 'OpenAI-Organization' put: anOrganizationString ].
-	client timeout: 120.
+	client timeout: 180.
+	client numberOfRetries: 3.
 	^ self new client: client
 ]
 
