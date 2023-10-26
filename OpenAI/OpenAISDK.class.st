@@ -49,6 +49,8 @@ OpenAISDK class >> createWithAPIKey: anAPIKeyString organization: anOrganization
 		client headerAt: 'OpenAI-Organization' put: anOrganizationString ].
 	client timeout: 180.
 	client numberOfRetries: 3.
+	client enforceHttpSuccess: true.
+   client ifFail: [ :ex | OpenAISDKException signalForObject:  ex ].
 	^ self new client: client
 ]
 
