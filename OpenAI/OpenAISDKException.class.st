@@ -37,3 +37,9 @@ OpenAISDKException >> initializeWithObject: anObject [
 	self initialize.
 	relatedObject := anObject
 ]
+
+{ #category : #accessing }
+OpenAISDKException >> relatedObject [
+
+	^ relatedObject
+]
